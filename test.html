@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link href='//fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+	
+</head>
+
+<body>
+
+<style type="text/css">
+body{
+  font-family: 'Asap', Arial, Helvetica, sans-serif;
+  color:white;
+  background:black url(//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/texture_bg.jpg) no-repeat 50% 0px;
+  margin:3% 10% 0 10%;
+  overflow:hidden;
+}
+
+#quote{
+  font-size:44px;
+  line-height:50px;
+  color:#dedede;
+}
+
+button {
+  padding:10px;
+  margin: 20px 0;
+}
+</style>
+
+<script type="text/javascript">
+
+/*
+See https://www.greensock.com/splittext/ for details. 
+This demo uses SplitText which is a membership benefit of Club GreenSock, https://www.greensock.com/club/
+*/
+
+var tl = new TimelineLite, 
+    mySplitText = new SplitText("#quote", {type:"words,chars"}), 
+    chars = mySplitText.chars; //an array of all the divs that wrap each character
+
+TweenLite.set("#quote", {perspective:400});
+
+tl.staggerFrom(chars, 0.8, {opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:Back.easeOut}, 0.01, "+=0");
+
+
+
+document.getElementById("animate").onclick = function() {
+  tl.restart();
+}
+
+</script>
+
+
+
+
+<div id="quote">SplitText makes it easy to break apart the text in an HTML element so that each character, word, and/or line is wrapped in its own div tag.</div>
+
+<button id="animate">animate</button>
+
+
+
+
+	
+</body>
+</html>
